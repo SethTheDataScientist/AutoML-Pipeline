@@ -61,8 +61,10 @@ class AutoMLPipeline:
             os.makedirs(os.path.join(output_dir, 'plots'))
             os.makedirs(os.path.join(output_dir, 'models'))
             os.makedirs(os.path.join(output_dir, 'reports'))
+
+  
     
-    def ingest_data(self, data_path, target_column, id_columns=None, drop_columns=None):
+    def ingest_data(self, data_path, target_column = None, id_columns=None, drop_columns=None):
         """
         Load and prepare the dataset.
         
@@ -187,6 +189,31 @@ class AutoMLPipeline:
             plt.close()
             
             self.eda_results['correlation_with_target'] = correlation_matrix[self.target].drop(self.target).to_dict()
+        
+        # Analyze numeric features with distribution plots and trendlines
+        if len(self.numeric_features) > 0:
+            numeric_stats = {}
+            for feature in self.numeric_features:
+                plt.figure(figsize=(10, 6))
+                sns.histplot(self.data[feature], kde=True, bins=30, color='blue', label='Distribution')
+                plt.title(f'Distribution and Trendline for {feature}')
+                plt.xlabel(feature)
+                plt.ylabel('Frequency')
+                plt.legend()
+                plt.tight_layout()
+                plot_path = os.path.join(self.output_dir, 'plots', f'{feature}_distribution_trendline.png')
+                plt.savefig(plot_path)
+                plt.close()
+                
+                numeric_stats[feature] = {
+                    'min': float(self.data[feature].min()),
+                    'max': float(self.data[feature].max()),
+                    'mean': float(self.data[feature].mean()),
+                    'median': float(self.data[feature].median()),
+                    'std': float(self.data[feature].std())
+                }
+            
+            self.eda_results['numeric_features_stats'] = numeric_stats
         
         # Analyze categorical features
         if len(self.categorical_features) > 0:
@@ -611,7 +638,9 @@ class AutoMLPipeline:
                 actual_values = test_slice[self.target]
                 print(f"[INFO] Making predictions on provided test slice of shape {test_slice.shape}")
             else:
-                raise ValueError(f"Test slice does not contain the target column '{self.target}'")
+                data_to_predict = test_slice
+                actual_values = None
+                print(f"[INFO] Making predictions on provided test slice of shape {test_slice.shape}")
         else:
             data_to_predict = self.X_test
             actual_values = self.y_test
