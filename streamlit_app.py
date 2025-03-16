@@ -1,7 +1,20 @@
-# streamlit_app.py
+
 import streamlit as st
 import pandas as pd
 from automl_pipeline import AutoMLPipeline  # Import the AutoMLPipeline class
+import os
+import zipfile
+
+def create_zip(output_dir, zip_name):
+    """
+    Create a zip file from the contents of the output directory.
+    """
+    with zipfile.ZipFile(zip_name, 'w') as zipf:
+        for root, dirs, files in os.walk(output_dir):
+            for file in files:
+                file_path = os.path.join(root, file)
+                arcname = os.path.relpath(file_path, start=output_dir)
+                zipf.write(file_path, arcname)
 
 def main():
     st.title("AutoML Pipeline with Streamlit")
@@ -84,8 +97,18 @@ def main():
             st.write("### Predictions")
             st.write(automl.prediction_results)
             
-            st.write("### Download Results")
-            st.write("All outputs are saved in the `streamlit_output` directory.")
+            # Create a zip file of the output directory
+            zip_name = "streamlit_output.zip"
+            create_zip('streamlit_output', zip_name)
+            
+            # Provide a download button for the zip file
+            with open(zip_name, "rb") as f:
+                st.download_button(
+                    label="Download Results as Zip",
+                    data=f,
+                    file_name=zip_name,
+                    mime="application/zip"
+                )
 
 if __name__ == "__main__":
     main()
