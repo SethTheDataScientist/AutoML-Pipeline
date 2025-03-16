@@ -1,0 +1,215 @@
+
+            <!DOCTYPE html>
+            <html>
+            <head>
+                <title>AutoML Pipeline Report</title>
+                <style>
+                    body { font-family: Arial, sans-serif; margin: 20px; }
+                    h1, h2, h3 { color: #2c3e50; }
+                    table { border-collapse: collapse; width: 100%; margin-bottom: 20px; }
+                    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+                    th { background-color: #f2f2f2; }
+                    tr:nth-child(even) { background-color: #f9f9f9; }
+                    .header { background-color: #2c3e50; color: white; padding: 20px; margin-bottom: 20px; }
+                    .section { margin-bottom: 30px; }
+                    .metric { display: inline-block; width: 200px; margin: 10px; padding: 15px; text-align: center; background-color: #f8f9fa; border-radius: 5px; }
+                    .metric-value { font-size: 24px; font-weight: bold; margin: 10px 0; }
+                    .metric-label { font-size: 14px; color: #666; }
+                </style>
+            </head>
+            <body>
+                <div class="header">
+                    <h1>AutoML Pipeline Report</h1>
+                    <p>Generated on 2025-03-15 13:16:54</p>
+                </div>
+                
+                <div class="section">
+                    <h2>Dataset Overview</h2>
+                    <p>Dataset size: 891 rows, 10 columns</p>
+                    <p>Problem type: Classification</p>
+                    <p>Target column: Survived</p>
+                    <p>Number of numeric features: 5</p>
+                    <p>Number of categorical features: 4</p>
+                </div>
+                
+                <div class="section">
+                    <h2>Best Model</h2>
+                    <p>Best model algorithm: RandomForest</p>
+                    <p>Best model parameters: {'max_depth': None, 'min_samples_leaf': 1, 'min_samples_split': 5, 'n_estimators': 100}</p>
+                    <p>Model training time: 16.81 seconds</p>
+                </div>
+            
+                <div class="section">
+                    <h2>Model Comparison</h2>
+                    <table>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Model</th>
+                            <th>Test Score</th>
+                            <th>CV Score</th>
+                            <th>Training Time (s)</th>
+                        </tr>
+                
+                    <tr>
+                        <td>1</td>
+                        <td>RandomForest</td>
+                        <td>0.8112</td>
+                        <td>0.8275</td>
+                        <td>5.91</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>2</td>
+                        <td>SVC</td>
+                        <td>0.8075</td>
+                        <td>0.8340</td>
+                        <td>2.85</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>3</td>
+                        <td>LogisticRegression</td>
+                        <td>0.8047</td>
+                        <td>0.8259</td>
+                        <td>3.13</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>4</td>
+                        <td>GradientBoosting</td>
+                        <td>0.7966</td>
+                        <td>0.8243</td>
+                        <td>4.89</td>
+                    </tr>
+                    </table></div>
+                <div class="section">
+                    <h2>Top Feature Importances</h2>
+                    <table>
+                        <tr>
+                            <th>Feature</th>
+                            <th>Importance</th>
+                        </tr>
+                
+                    <tr>
+                        <td>categorical__Sex_female</td>
+                        <td>0.1288</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>categorical__Sex_male</td>
+                        <td>0.1119</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>numeric__Fare</td>
+                        <td>0.0865</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>numeric__Age</td>
+                        <td>0.0710</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>numeric__Pclass</td>
+                        <td>0.0512</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>categorical__Cabin_G6</td>
+                        <td>0.0353</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>numeric__SibSp</td>
+                        <td>0.0238</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>numeric__Parch</td>
+                        <td>0.0235</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>categorical__Embarked_S</td>
+                        <td>0.0127</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>categorical__Ticket_1601</td>
+                        <td>0.0120</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>categorical__Embarked_C</td>
+                        <td>0.0107</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>categorical__Ticket_237798</td>
+                        <td>0.0055</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>categorical__Embarked_Q</td>
+                        <td>0.0055</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>categorical__Ticket_A/5 3540</td>
+                        <td>0.0051</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>categorical__Ticket_C 17369</td>
+                        <td>0.0050</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>categorical__Ticket_350034</td>
+                        <td>0.0050</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>categorical__Ticket_312991</td>
+                        <td>0.0050</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>categorical__Ticket_A/5. 10482</td>
+                        <td>0.0048</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>categorical__Ticket_347082</td>
+                        <td>0.0046</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>categorical__Ticket_315098</td>
+                        <td>0.0044</td>
+                    </tr>
+                    </table></div>
+                <div class="section">
+                    <h2>Files Generated</h2>
+                    <ul>
+                        <li>Full model pipeline: <code>models/full_pipeline.joblib</code></li>
+                        <li>Predictions: <code>predictions.csv</code></li>
+                        <li>Feature importances: <code>reports/feature_importances.csv</code></li>
+                        <li>Model rankings: <code>reports/model_rankings.csv</code></li>
+                        <li>Metadata: <code>reports/metadata.json</code></li>
+                    </ul>
+                </div>
+                
+                <div class="section">
+                    <h2>Usage Instructions</h2>
+                    <p>To load and use the saved model:</p>
+                    <pre>
+                    import joblib
+                    model = joblib.load('models/full_pipeline.joblib')
+                    predictions = model.predict(new_data)
+                    </pre>
+                </div>
+            </body>
+            </html>
+            

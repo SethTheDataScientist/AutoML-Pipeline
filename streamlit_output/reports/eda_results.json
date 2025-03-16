@@ -1,0 +1,81 @@
+{
+    "basic_stats": {
+        "data_shape": [
+            891,
+            10
+        ],
+        "data_types": {
+            "Survived": "int64",
+            "Pclass": "int64",
+            "Sex": "object",
+            "Age": "float64",
+            "SibSp": "int64",
+            "Parch": "int64",
+            "Ticket": "object",
+            "Fare": "float64",
+            "Cabin": "object",
+            "Embarked": "object"
+        },
+        "null_counts": {
+            "Survived": 0,
+            "Pclass": 0,
+            "Sex": 0,
+            "Age": 177,
+            "SibSp": 0,
+            "Parch": 0,
+            "Ticket": 0,
+            "Fare": 0,
+            "Cabin": 687,
+            "Embarked": 2
+        },
+        "null_percentage": {
+            "Survived": 0.0,
+            "Pclass": 0.0,
+            "Sex": 0.0,
+            "Age": 19.865319865319865,
+            "SibSp": 0.0,
+            "Parch": 0.0,
+            "Ticket": 0.0,
+            "Fare": 0.0,
+            "Cabin": 77.10437710437711,
+            "Embarked": 0.22446689113355783
+        }
+    },
+    "target_distribution": {
+        "0": 549,
+        "1": 342
+    },
+    "correlation_with_target": {
+        "Pclass": -0.3384810359610152,
+        "Age": -0.07722109457217759,
+        "SibSp": -0.03532249888573556,
+        "Parch": 0.08162940708348335,
+        "Fare": 0.2573065223849626
+    },
+    "categorical_features_stats": {
+        "Sex": {
+            "unique_values": 2,
+            "most_common": "male",
+            "most_common_count": 577,
+            "most_common_percentage": 64.75869809203144
+        },
+        "Ticket": {
+            "unique_values": 681,
+            "most_common": "347082",
+            "most_common_count": 7,
+            "most_common_percentage": 0.7856341189674524
+        },
+        "Cabin": {
+            "unique_values": 147,
+            "most_common": "G6",
+            "most_common_count": 4,
+            "most_common_percentage": 0.44893378226711567
+        },
+        "Embarked": {
+            "unique_values": 3,
+            "most_common": "S",
+            "most_common_count": 644,
+            "most_common_percentage": 72.27833894500561
+        }
+    }
+}

@@ -1,0 +1,27 @@
+{
+    "problem_type": "classification",
+    "best_model": "RandomForest",
+    "best_model_params": {
+        "max_depth": null,
+        "min_samples_leaf": 1,
+        "min_samples_split": 5,
+        "n_estimators": 100
+    },
+    "best_model_score": 0.8111988874769224,
+    "execution_time": 16.813666582107544,
+    "timestamp": "2025-03-15 13:16:54",
+    "metrics": null,
+    "numeric_features": [
+        "Pclass",
+        "Age",
+        "SibSp",
+        "Parch",
+        "Fare"
+    ],
+    "categorical_features": [
+        "Sex",
+        "Ticket",
+        "Cabin",
+        "Embarked"
+    ]
+}
