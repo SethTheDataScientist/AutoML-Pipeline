@@ -8,8 +8,8 @@
         "n_estimators": 100
     },
     "best_model_score": 0.8111988874769224,
-    "execution_time": 17.682066202163696,
-    "timestamp": "2025-03-15 13:51:35",
+    "execution_time": 16.925458192825317,
+    "timestamp": "2025-03-15 17:39:43",
     "metrics": {
         "accuracy": 0.8156424581005587,
         "precision": 0.8162539985336006,
